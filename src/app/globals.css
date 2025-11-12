@@ -1,59 +1,73 @@
 @import "tailwindcss";
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ============================================
+   PORTFOLIO DESIGN SYSTEM - PIXEL-PERFECT SPECIFICATION
+   Extracted from: ai-generated-preview.png
+   ============================================ */
+
+/* Import Inter font for modern sans-serif typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* Portfolio Color System - Exact HSL values from design reference */
+  --background: 0 0% 100%;                    /* #ffffff - Main background */
+  --foreground: 217 19% 27%;                  /* #2d3748 - Primary text */
 
-  /* Clean white cards with black text */
+  /* Navy primary color for header/footer */
+  --navy-primary: 214 35% 15%;                /* #1a2332 - Header, Footer CTA */
+
+  /* Accent colors from design */
+  --orange-accent: 31 100% 62%;               /* #ff9a3c - Primary buttons */
+  --blue-light: 200 55% 67%;                  /* #7ab8d9 - Secondary buttons */
+
+  /* Gray scale */
+  --gray-50: 210 20% 98%;                     /* #f5f5f5 - Footer background */
+  --gray-100: 214 14% 93%;                    /* #e5e7eb - Borders */
+  --gray-600: 215 16% 47%;                    /* #6b7280 - Secondary text */
+  --gray-900: 217 19% 27%;                    /* #2d3748 - Primary text */
+
+  /* Card colors */
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  --card-foreground: 217 19% 27%;
 
-  /* Popovers with white background */
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
-
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
+  /* Primary: Navy */
+  --primary: 214 35% 15%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  /* Secondary: Orange accent */
+  --secondary: 31 100% 62%;
+  --secondary-foreground: 0 0% 100%;
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
+  /* Muted: Light gray */
+  --muted: 214 14% 93%;
+  --muted-foreground: 215 16% 47%;
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  /* Accent: Light blue */
+  --accent: 200 55% 67%;
+  --accent-foreground: 0 0% 100%;
 
-  /* Destructive: Clean red */
+  /* Destructive: Red */
   --destructive: 0 70% 50%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  /* Borders */
+  --border: 214 14% 93%;
+  --input: 214 14% 93%;
+  --ring: 214 35% 15%;
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border radius - 8px for cards, 4px for buttons */
+  --radius: 0.5rem;
+  --radius-button: 0.25rem;
 
-  /* Sidebar: Clean white with black text */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  /* Sidebar colors */
+  --sidebar-background: 214 35% 15%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 0 0% 100%;
+  --sidebar-primary-foreground: 214 35% 15%;
+  --sidebar-accent: 31 100% 62%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 214 35% 20%;
+  --sidebar-ring: 31 100% 62%;
 }
 
 .dark {
@@ -168,36 +182,192 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
+/* ============================================
+   GLOBAL TYPOGRAPHY & BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  letter-spacing: -0.025em;
+/* Typography Scale - Exact specifications from design */
+h1 {
+  font-size: 3rem;              /* 48px */
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
   color: hsl(var(--foreground));
 }
 
-/* Clean button styles */
-button {
-  font-weight: 500;
+h2 {
+  font-size: 2rem;              /* 32px */
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin: 0 0 0.75rem 0;
+  color: hsl(var(--foreground));
 }
 
-/* Subtle shadows for depth */
+h3 {
+  font-size: 1.25rem;           /* 20px */
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 0.5rem 0;
+  color: hsl(var(--foreground));
+}
+
+h4 {
+  font-size: 1.125rem;          /* 18px */
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 0.5rem 0;
+  color: hsl(var(--foreground));
+}
+
+h5, h6 {
+  font-size: 1rem;              /* 16px */
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+  color: hsl(var(--foreground));
+}
+
+p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+a {
+  color: hsl(var(--accent));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--secondary));
+}
+
+/* Mobile responsive typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;            /* 32px on mobile */
+  }
+
+  h2 {
+    font-size: 1.5rem;          /* 24px on mobile */
+  }
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary Button (Orange) */
+.btn-primary {
+  background-color: hsl(var(--orange-accent));
+  color: white;
+  padding: 0.75rem 1.5rem;      /* 12px 24px */
+  border-radius: var(--radius-button);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;          /* 14px */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: hsl(31 100% 55%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Secondary Button (Light Blue) */
+.btn-secondary {
+  background-color: hsl(var(--blue-light));
+  color: white;
+  padding: 0.625rem 1.25rem;    /* 10px 20px */
+  border-radius: var(--radius-button);
+  font-weight: 500;
+  font-size: 0.875rem;          /* 14px */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.btn-secondary:hover {
+  background-color: hsl(200 55% 60%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   SHADOWS & EFFECTS
+   ============================================ */
+
 .shadow-sm {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0.08);
 }
 
 .shadow-md {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* ============================================
+   CONTAINER & LAYOUT
+   ============================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;            /* 24px horizontal padding */
+}
+
+.section-padding {
+  padding: 5rem 0;              /* 80px vertical padding */
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 0;            /* 48px on mobile */
+  }
 }
